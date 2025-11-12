@@ -4,10 +4,11 @@
 
 ## Как запустить?
 
-1. Клонируйте репозиторий.
-2. Установите зависимости (`pip install -r requirements.txt`).
-3. Примените миграции базы данных (`python manage.py migrate`).
-4. Запустите сервер разработки (`python manage.py runserver`).
+1. Клонируйте репозиторий (`git clone https://github.com/an-nekhoroshev/incident-tracker.git`).
+2. Перейдите в папку проекта (`cd incident-tracker`).
+3. Установите зависимости (`pip install -r requirements.txt`).
+4. Примените миграции базы данных (`python manage.py migrate`).
+5. Запустите сервер разработки (`python manage.py runserver`).
 
 ## Эндпоинты
 
@@ -67,8 +68,11 @@ foreach ($item in $response) {
     Write-Host "Status: $($item.status)" -ForegroundColor Magenta
     Write-Host "-------------------------"
 }
+```
 
-Получение списка инцидентов с фильтрацией по статусу
+### Получение списка инцидентов с фильтрацией по статусу
+
+```
 # GET-запрос с фильтром по статусу. Status = NEW   IN_PROGRESS   RESOLVED   CLOSED
 $response = Invoke-RestMethod -Method Get -Uri 'http://127.0.0.1:8000/incidents/?status=IN_PROGRESS'
 
